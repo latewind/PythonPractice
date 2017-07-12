@@ -39,7 +39,7 @@ if __name__ == '__main__' :
             pool.close()
             pool.join()
         print (resultList)
-        print ([r.get(timeout=5) for r in mult_res])
+       # print ([r.get(timeout=5) for r in mult_res])
 
 
 
