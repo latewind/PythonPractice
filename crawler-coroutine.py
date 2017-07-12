@@ -29,8 +29,7 @@ class Task:
 		next_future.add_callback(self.step)
 
 
-def connect():
-	sock = socket.socket()
+def connect(sock):
 	sock.setblocking(False)
 	f = Future()
 	try:
@@ -46,8 +45,9 @@ def connect():
 	selector.unregister(sock.fileno())
 
 class Fetcher:
-	def fetch(sefl):
-		yield from connect()
+	def fetch(self):
+		sock = socket.socket()
+		yield from connect(sock)
 
 
 def loop_event():
